@@ -12,9 +12,16 @@ var options = {
 };
 request(options, function (error, response) {
   if (error) throw new Error(error);
+  try {
       const premier_cours = JSON.parse(response.body)[0] // choisir le numéro du cours 0 pour premier, 1 deuxieme, ...
       const premier_cours_id = premier_cours.id
       sendInscription(premier_cours_id);
+  } catch (e) {
+      setTimeout(() => {
+        console.log("Attente d'ouverture des inscriptions ...");
+        startIscription();
+      }, "3000")
+  }
 });
 
 }
@@ -35,7 +42,7 @@ request(options, function (error, response) {
   if (response.body.length == 0) 
     {
       setTimeout(() => {
-        console.log("Relance d'inscription...");
+        console.log("Relance d'inscription ...");
         sendInscription(id);
       }, "3000")
     } else   if (response.body.length > 0) {
