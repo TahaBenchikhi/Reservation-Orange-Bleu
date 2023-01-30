@@ -3,4 +3,4 @@ Script de réservation des places
 
 Veuiilez changer vos coordonnés dans le code
 
-Pour le lancer script : node inscriptions.js
+Pour lancer le script : node inscriptions.js
