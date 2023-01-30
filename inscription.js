@@ -34,7 +34,7 @@ var options = {
   },
   formData: {
     'type': 'setInscription',
-    'data': '{"firstname":"benchikhi","lastname":"Taha","tel":"0769123597","email":"benchikhi.taha@gmail.com","creneauCoursId":'+id+'}'
+    'data': '{"firstname":"benchikhi","lastname":"Taha","tel":"0769123597","email":"benchikhio.taha@gmail.com","creneauCoursId":'+id+'}'
   }
 };
 request(options, function (error, response) {
@@ -42,7 +42,7 @@ request(options, function (error, response) {
   if (response.body.length == 0) 
     {
       setTimeout(() => {
-        console.log("Relance d'inscription ...");
+        console.log("Attente de libération d'une place ...");
         sendInscription(id);
       }, "3000")
     } else   if (response.body.length > 0) {
